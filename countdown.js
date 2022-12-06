@@ -1,11 +1,12 @@
-function t ()
+function Countdown ()
        {
-           var compteur = document.getElementById('compteur')
+           var countdown = document.getElementById('countdown')
            s = duree
            m = 0
            h = 0
        if(s<0) {
-           compteur.innerHTML="Le live va commencer dans un instant !" // Phrase de lancement de live
+         // Live launch phrase
+           countdown.innerHTML="Le live va commencer dans un instant !"
        }
        else {
            if(s>59){
@@ -16,16 +17,19 @@ function t ()
                h=Math.floor(m/60)
                m=m-h*60
            }
-           if(s<10){ // si le compteur est a moins de 10 seconde alors on rajoute un 0 devant le chiffre des secondes
+           if(s<10){
+             // if the counter is less than 10 seconds then we add a 0 in front of the seconds digit
                s="0"+s
            }
            if(m<10){
-               m="0"+m // si le compteur est a moins de 10 minutes alors on rajoute un 0 devant le chiffre des minutes
+            // if the counter is less than 10 minutes then we add a 0 in front of the minutes number
+               m="0"+m
            }
-           compteur.innerHTML="LANCEMENT DANS <hr> <b>"+ m + ":" + s + "</b>"// Phrase d'attente de live
+           countdown.innerHTML="LANCEMENT DANS <hr> <b>"+ m + ":" + s + "</b>"// Phrase d'attente de live
        }
        duree=duree-1
-       window.setTimeout("t();",999)
+       window.setTimeout("Countdown();",999)
        }
-          duree="300"//permet de modifier la durée du compte à rebours (temps en secondes)
-          t()
+       //allows you to change the duration of the countdown (time in seconds)
+          duree="300"
+          Countdown()
